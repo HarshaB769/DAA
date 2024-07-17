@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+// Function to calculate the sum of elements in an array using divide and conquer
+int sumUsingDivideAndConquer(int arr[], int l, int r) {
+    if (l == r) {
+        return arr[l]; // Base case: when the array segment has only one element
+    } else {
+        int mid = (l + r) / 2;
+        // Divide the array into two halves and recursively calculate sum
+        int leftSum = sumUsingDivideAndConquer(arr, l, mid);
+        int rightSum = sumUsingDivideAndConquer(arr, mid + 1, r);
+        // Combine the results
+        return leftSum + rightSum;
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int totalSum = sumUsingDivideAndConquer(arr, 0, size - 1);
+
+    printf("Sum of the array elements using divide and conquer is: %d\n", totalSum);
+
+    return 0;
+}

@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void fibonacciUpTo(int max_value) {
+    int a = 0, b = 1, c = 0;
+
+    // Print the first two Fibonacci numbers
+    printf("%d, %d, ", a, b);
+
+    // Generate Fibonacci numbers until c exceeds max_value
+    while (c <= max_value) {
+        c = a + b;
+        if (c <= max_value) {
+            printf("%d, ", c);
+        }
+        a = b;
+        b = c;
+    }
+
+    printf("\n");
+}
+
+int main() {
+    int max_value;
+
+    printf("Enter the maximum value up to which Fibonacci series should be generated: ");
+    scanf("%d", &max_value);
+
+    fibonacciUpTo(max_value);
+
+    return 0;
+}

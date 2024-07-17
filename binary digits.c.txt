@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+// Function to find the number of digits in binary representation of a decimal number
+int countBinaryDigits(int decimalNumber) {
+    // Edge case: If the number is 0, binary representation is "0", so it has 1 digit
+    if (decimalNumber == 0) {
+        return 1;
+    }
+
+    // Initialize count to 0
+    int count = 0;
+
+    // Loop until the decimal number becomes 0
+    while (decimalNumber != 0) {
+        // Increment count for each binary digit
+        count++;
+        // Right shift the number by 1 bit
+        decimalNumber = decimalNumber >> 1;
+    }
+
+    // Return the count of binary digits
+    return count;
+}
+
+int main() {
+    int decimalNumber;
+
+    // Input the decimal number from the user
+    printf("Enter a decimal number: ");
+    scanf("%d", &decimalNumber);
+
+    // Call function to count the binary digits
+    int numOfDigits = countBinaryDigits(decimalNumber);
+
+    // Output the number of binary digits
+    printf("Number of digits in binary representation: %d\n", numOfDigits);
+
+    return 0;
+}
